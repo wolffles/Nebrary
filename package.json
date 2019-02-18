@@ -1,0 +1,25 @@
+{
+  "name": "netbrary",
+  "version": "1.0.0",
+  "description": "Library for shows on the net.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wolffles/Netbrary.git"
+  },
+  "author": "Wolfgang Truong (http://github.com/wolffles)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wolffles/Netbrary/issues"
+  },
+  "homepage": "https://github.com/wolffles/Netbrary#readme",
+  "dependencies": {
+    "express": "4.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "1.18.10"
+  }
+}
