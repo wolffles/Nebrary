@@ -25,7 +25,7 @@ router.get('/', (req, res) => {
     });
     resp.on('end', function () {
       let obj = JSON.parse(body);
-      res.json(obj)
+      res.json(obj.results)
     });
   }).on('error', function (e) {
     res.json({message: "Got an error: "+  e});
