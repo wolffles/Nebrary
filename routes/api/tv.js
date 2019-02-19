@@ -30,7 +30,7 @@ router.get('/', (req, res) => {
   }).on('error', function (e) {
     res.json({message: "Got an error: "+  e});
   });
-  // ends the http 
+  // ends the http request
   request.end()
 })
 module.exports = router;
