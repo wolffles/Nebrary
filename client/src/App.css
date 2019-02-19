@@ -71,3 +71,7 @@ img {
 .form-control::placeholder {
   color: #bbb !important;
 }
+
+.discoverItem img{
+  width: 154px;
+}
