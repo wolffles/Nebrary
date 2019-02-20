@@ -8,8 +8,8 @@ class DiscoverItem extends Component {
   render() {
     const {show} = this.props;
     return (
-      <div>
-        {/* <h1> {show.original_name} </h1> */}
+      <div className="discoverItem">
+        <h3> {show.original_name} </h3>
         <img
           src={ "https://image.tmdb.org/t/p/w154/"+show.poster_path }
           alt={show.original_name}
