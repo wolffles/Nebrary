@@ -2,22 +2,25 @@ const express = require('express');
 const router = express.Router();
 
 const https = require('https');
-var options = {
-  "method": "GET",
-  "hostname": "api.themoviedb.org",
-  "port": null,
-  "path": "/3/discover/tv?include_null_first_air_dates=false&timezone=America%2FNew_York&page=1&sort_by=popularity.desc&language=en-US&api_key=fb6a1d3f38c3d97f67df6d141f936f29",
-  "headers": {}
-};
+const api_key = "fb6a1d3f38c3d97f67df6d141f936f29"
 // @route GET api/tv/test
 // @desc Tests tv route
 // @access Public
 router.get('/test', (req,res) => res.json({message: "tv works"}));
 
-// @route GET api/tv/
-// @desc landing page
+// @route GET api/tv/:page
+// @desc shows tv collection by popularity in descending order
 // @access Public
-router.get('/', (req, res) => {
+router.get('/:page', (req, res) => {
+  // console.log(req.params.page)
+  let page = req.params.page || 1
+  let options = {
+    "method": "GET",
+    "hostname": "api.themoviedb.org",
+    "port": null,
+    "path": `/3/tv/popular?page=${page}&language=en-US&api_key=${api_key}`,
+    "headers": {}
+  }
   var request = https.request(options, function (resp) {
     var body = '';
     resp.on('data', function (chunk) {
@@ -30,7 +33,37 @@ router.get('/', (req, res) => {
   }).on('error', function (e) {
     res.json({message: "Got an error: "+  e});
   });
-  // ends the http request
   request.end()
 })
+
+
+// @route GET api/tv/:search
+// @desc search for collection by title
+// @access Public
+router.get('/search/:search/:page', (req, res) => {
+  let search = req.params.search
+  let page = req.params.page
+  var options = {
+    "method": "GET",
+    "hostname": "api.themoviedb.org",
+    "port": null,
+    "path": `/3/search/tv?page=${page}&query=${search}&language=en-US&api_key=${api_key}`,
+    "headers": {}
+  };
+
+  var request = https.request(options, function (resp) {
+    var body = '';
+    resp.on("data", function (chunk) {
+      body += chunk
+    });
+
+    resp.on("end", function () {
+      let obj = JSON.parse(body);
+      res.json(obj.results);
+      
+    });
+  });
+  request.end();
+});
+
 module.exports = router;

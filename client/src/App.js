@@ -9,6 +9,7 @@ import './App.css';
 import Discover from './components/layout/Discover'
 import Footer from './components/layout/Footer'
 import Landing from './components/layout/Landing'
+import Navbar from './components/layout/Navbar'
 import './App.css';
 
 class App extends Component {
@@ -17,11 +18,12 @@ class App extends Component {
       <Provider store={ store }>
         <Router>
           <div className="App">
+            <Navbar />
             <Route exact path="/" component={Landing} /> 
             <div className="container">
               <Route exact path="/tv" component={Discover} />
             </div>
-            <Footer />
+            <Footer />  
           </div>
         </Router> 
       </Provider>

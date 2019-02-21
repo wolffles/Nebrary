@@ -23,6 +23,7 @@
   "dependencies": {
     "axios": "0.18.0",
     "classname": "0.0.0",
+    "classnames": "2.2.6",
     "concurrently": "4.1.0",
     "express": "4.16.4"
   },

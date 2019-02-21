@@ -5,24 +5,18 @@ import {connect} from 'react-redux';
 import { getShows } from '../../actions/tvActions'
 import DiscoverFeed from './DiscoverFeed'
 import Spinner from '../common/Spinner';
+import Searchbar from './Searchbar'
 
 
 class Discover extends Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     errors:{}
-  //   }
-  // }
+  // add constructor
   componentDidMount(){
     this.props.getShows();
   }
-
-  componentWillReceiveProps(nextProps) {
-    if(nextProps.errors) {
-      this.setState({errors: nextProps.errors});
-    }
+  onNextButton(){
+    // add a next button to update getShows()
   }
+
   render() {
     const {shows,loading } = this.props.tvShow
     let showsContent;
@@ -34,22 +28,15 @@ class Discover extends Component {
     }
     
     return (
-      <div>
-        <h1>Browse Shows</h1>
-          {console.log("this is results", shows)}
-         {/* {  showsContent.map(show => (
-           <div className="discoverItem">
-            <h3> {show.original_name} </h3>
-            <img
-              src={"https://image.tmdb.org/t/p/w154/"+show.poster_path}
-              alt={show.original_name + " poster"}
-            />
-            </div>
-          //  need to create component for images and name
-         ))
-         } */}
-         {showsContent}
-      </div>
+      <container>
+        <div>
+          <Searchbar/>
+        </div>
+        <div>
+          <h1>Popular shows</h1>
+          {showsContent}
+        </div>
+      </container>
     )
   }
 }
