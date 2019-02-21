@@ -11,16 +11,17 @@ import Searchbar from './Searchbar'
 class Discover extends Component {
   // add constructor
   componentDidMount(){
-    this.props.getShows();
+    this.props.getShows(1);
   }
   onNextButton(){
     // add a next button to update getShows()
   }
 
   render() {
-    const {shows,loading } = this.props.tvShow
-    // console.log(this.props.tvshow)
+    const {shows,loading, searched } = this.props.tvShow
     let showsContent;
+    let headline;
+    searched ? headline="Found Shows" : headline="Popular Shows"
 
     if (shows.results === null || loading) {
       showsContent = <Spinner />;
@@ -34,7 +35,7 @@ class Discover extends Component {
           <Searchbar shows={shows}/>
         </div>
         <div>
-          <h1>Popular shows</h1>
+          <h1>{headline}</h1>
           {showsContent}
         </div>
       </div>

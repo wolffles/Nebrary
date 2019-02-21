@@ -7,11 +7,14 @@ import {
 } from './types'
 
 //GET TV SHOWS
-export const getShows = (searchOptions) => dispatch => {
+export const getShows = (queryObj) => dispatch => {
   dispatch(setShowLoading());
-  // console.log(searchOptions)
   axios
-    .get(`/api/tv/${searchOptions}`)
+    .get(`/api/tv/`,{
+      params: {
+        page: queryObj
+      }
+    })
     .then(res => 
       dispatch({
         type: GET_SHOWS,
@@ -28,9 +31,13 @@ export const getShows = (searchOptions) => dispatch => {
 //GET Search for by title
 export const searchTitleTV = (queryObj) => dispatch => {
   dispatch(setShowLoading());
-  // console.log(queryObj)
   axios
-    .get(`/api/tv/search/${queryObj.query}/${queryObj.page}`)
+    .get(`/api/tv/search/`, {
+      params: {
+        search: queryObj.search,
+        page: queryObj.page
+      }
+    })
     .then(res =>
       dispatch({
         type: SEARCH_TITLE,

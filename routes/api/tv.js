@@ -11,9 +11,8 @@ router.get('/test', (req,res) => res.json({message: "tv works"}));
 // @route GET api/tv/:page
 // @desc shows tv collection by popularity in descending order
 // @access Public
-router.get('/:page', (req, res) => {
-  // console.log(req.params.page)
-  let page = req.params.page || 1
+router.get('/', (req, res) => {
+  let page = req.query.page || 1
   let options = {
     "method": "GET",
     "hostname": "api.themoviedb.org",
@@ -40,9 +39,10 @@ router.get('/:page', (req, res) => {
 // @route GET api/tv/:search
 // @desc search for collection by title
 // @access Public
-router.get('/search/:search/:page', (req, res) => {
-  let search = req.params.search
-  let page = req.params.page
+router.get('/search', (req, res) => {
+  console.log(req.query)
+  let search = req.query.search
+  let page = req.query.page || 1
   var options = {
     "method": "GET",
     "hostname": "api.themoviedb.org",

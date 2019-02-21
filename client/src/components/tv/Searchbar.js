@@ -9,7 +9,7 @@ class Searchbar extends Component {
   constructor() {
     super();
     this.state = {
-      query: "",
+      search: "",
       page: "",
       errors: {}
     };
@@ -25,7 +25,7 @@ class Searchbar extends Component {
     e.preventDefault();
 
     const queryObj = {
-      query: this.state.query,
+      search: this.state.search,
       page: this.state.page || 1
     };
 
@@ -33,16 +33,15 @@ class Searchbar extends Component {
   }
 
   render() {
-    // const {shows} = this.props
     return (
       <div className="searchbar">
         <div className="container">
           <form onSubmit={this.onSubmit}>
             <TextFieldGroup
               placeholder="Search library by title"
-              name="query"
-              type="query"
-              value={this.state.query}
+              name="search"
+              type="search"
+              value={this.state.search}
               onChange={this.onChange}
               //errors to be added
               />

@@ -7,7 +7,8 @@ import{
 const initialState = {
   search_results: [],
   shows: [],
-  loading: false
+  loading: false,
+  searched: false
 }
 
 export default function(state = initialState, action){
@@ -27,7 +28,8 @@ export default function(state = initialState, action){
       return {
         ...state,
         shows: action.payload,
-        loading: false
+        loading: false,
+        searched: true
       }
     default:
       return state
