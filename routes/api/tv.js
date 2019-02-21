@@ -62,6 +62,8 @@ router.get('/search/:search/:page', (req, res) => {
       res.json(obj.results);
       
     });
+  }).on('error', function (e) {
+    res.json({ message: "Got an error: " + e });
   });
   request.end();
 });

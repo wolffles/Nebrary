@@ -19,6 +19,7 @@ class Discover extends Component {
 
   render() {
     const {shows,loading } = this.props.tvShow
+    // console.log(this.props.tvshow)
     let showsContent;
 
     if (shows.results === null || loading) {
@@ -28,15 +29,15 @@ class Discover extends Component {
     }
     
     return (
-      <container>
+      <div className="container">
         <div>
-          <Searchbar/>
+          <Searchbar shows={shows}/>
         </div>
         <div>
           <h1>Popular shows</h1>
           {showsContent}
         </div>
-      </container>
+      </div>
     )
   }
 }

@@ -26,8 +26,8 @@ export default function(state = initialState, action){
     case SEARCH_TITLE:
       return {
         ...state,
-        search_results: action.payload,
-        loading:false
+        shows: action.payload,
+        loading: false
       }
     default:
       return state

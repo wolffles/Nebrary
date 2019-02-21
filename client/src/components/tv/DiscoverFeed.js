@@ -5,7 +5,7 @@ import DiscoverItem from './DiscoverItem';
 class DiscoverFeed extends Component {
   render() {
     const { shows } = this.props;
-    return shows.map(show => <DiscoverItem show={show} />);
+    return shows.map(show => <DiscoverItem key={show.id} show={show} />);
   }
 }
 

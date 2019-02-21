@@ -6,7 +6,7 @@ import store from './store'
 import './App.css';
 
 
-import Discover from './components/layout/Discover'
+import Discover from './components/tv/Discover'
 import Footer from './components/layout/Footer'
 import Landing from './components/layout/Landing'
 import Navbar from './components/layout/Navbar'

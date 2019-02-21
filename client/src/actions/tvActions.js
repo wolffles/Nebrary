@@ -9,7 +9,7 @@ import {
 //GET TV SHOWS
 export const getShows = (searchOptions) => dispatch => {
   dispatch(setShowLoading());
-  console.log(searchOptions)
+  // console.log(searchOptions)
   axios
     .get(`/api/tv/${searchOptions}`)
     .then(res => 
@@ -28,9 +28,9 @@ export const getShows = (searchOptions) => dispatch => {
 //GET Search for by title
 export const searchTitleTV = (queryObj) => dispatch => {
   dispatch(setShowLoading());
-  console.log(queryObj)
+  // console.log(queryObj)
   axios
-    .get(`/api/tv/${queryObj.query}/${queryObj.page}`)
+    .get(`/api/tv/search/${queryObj.query}/${queryObj.page}`)
     .then(res =>
       dispatch({
         type: SEARCH_TITLE,
@@ -38,7 +38,7 @@ export const searchTitleTV = (queryObj) => dispatch => {
       }))
     .catch(err =>
       dispatch({
-        type: GET_SHOWS,
+        type: SEARCH_TITLE,
         payload: null
       })
     )

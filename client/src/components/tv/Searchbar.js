@@ -33,6 +33,7 @@ class Searchbar extends Component {
   }
 
   render() {
+    // const {shows} = this.props
     return (
       <div className="searchbar">
         <div className="container">
@@ -54,11 +55,12 @@ class Searchbar extends Component {
 }
 Searchbar.propTypes = {
   searchTitleTV: PropTypes.func.isRequired,
-  tvShows: PropTypes.object.isRequired
+  tvShow: PropTypes.object.isRequired,
+  shows: PropTypes.array.isRequired
 }
 
 const mapStateToProps = state => ({
-  tvShows: state.tvShows
+  tvShow: state.tvShows
 })
 
 export default connect (mapStateToProps, { searchTitleTV })(Searchbar);
