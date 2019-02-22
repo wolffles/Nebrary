@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-// import classnames from 'classnames';
-// import { Link } from 'react-router-dom';
 
 class DiscoverItem extends Component {
   render() {
@@ -10,7 +8,7 @@ class DiscoverItem extends Component {
     return (
       <div className="discoverItem">
         <a href={`../details/${show.id}`}>
-          <h3> {show.original_name} </h3>
+          <p>{show.original_name}</p>
           <img
             src={ "https://image.tmdb.org/t/p/w154/"+show.poster_path }
             alt={show.original_name}

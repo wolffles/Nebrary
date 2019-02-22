@@ -69,10 +69,7 @@ router.get('/details/:id', (req, res) => {
 // @desc search for collection by title
 // @access Public
 router.get('/search', (req, res) => {
-  console.log(req.query)
   const {errors, isValid} = validateSearchInput(req.query);
-  console.log(errors)
-  console.log(isValid)
   if (!isValid) {
     return res.status(400).json(errors); //status code 400 is bad request.
   }

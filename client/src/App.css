@@ -1,26 +1,6 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
+  /* background-color: darkgrey; */
 }
 
 @keyframes App-logo-spin {
@@ -59,19 +39,40 @@ img {
   height: 100%;
 }
 
-.card-form {
-  opacity: 0.9;
-}
-
-.latest-profiles-img {
-  width: 40px;
-  height: 40px;
-}
-
 .form-control::placeholder {
   color: #bbb !important;
 }
 
+.discoverFeed {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+.discoverItem {
+  width: 20%;
+  box-sizing: border-box;
+  padding: 5px;
+  margin-top:20px;
+}
+
+.discoverItem p {
+  color:black;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow:hidden;
+}
+
 .discoverItem img{
-  width: 154px;
+  display: flex;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }

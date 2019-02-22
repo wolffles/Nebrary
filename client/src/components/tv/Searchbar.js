@@ -53,7 +53,8 @@ class Searchbar extends Component {
               onChange={this.onChange}
               error={errors.search}
               />
-            <input type="submit" className="btn btn-info" />
+            {/* removed cux it was more streamline */}
+            {/* <input type="submit" className="btn btn-info" /> */}
           </form>
         </div>
       </div>

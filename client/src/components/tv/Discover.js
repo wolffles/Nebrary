@@ -34,8 +34,8 @@ class Discover extends Component {
         <div>
           <Searchbar shows={shows}/>
         </div>
-        <div>
-          <h1>{headline}</h1>
+        <h1>{headline}</h1>
+        <div className="discoverFeed">
           {showsContent}
         </div>
       </div>
