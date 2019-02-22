@@ -12,26 +12,32 @@ class Discover extends Component {
   constructor(){
     super();
     this.state = {
-      headline: ''
+      headline: '',
+      page: 1
     }
+    this.onNextButton = this.onNextButton.bind(this)
+    this.onPreviousButton = this.onPreviousButton.bind(this)
   }
   componentDidMount(){
     this.props.getShows();
   }
   onPreviousButton(){
     if (this.headline === "Popular Shows") {
-
+      this.setState({ page: this.state.page - 1 }, () => this.props.getShows(this.state.page))
     }
   }
   onNextButton(){
-    // add a next button to update getShows()
+    if (this.headline === "Popular Shows") {
+      this.setState({ page: this.state.page + 1 }, () => this.props.getShows(this.state.page))
+    }
   }
 
   render() {
     const {shows,loading, searched } = this.props.tvShow
     let showsContent;
+    
     searched ? this.headline="Found Shows" : this.headline="Popular Shows"
-
+    
     if (shows.results === null || loading) {
       showsContent = <Spinner />;
     }else {
@@ -43,12 +49,13 @@ class Discover extends Component {
         <div>
           <Searchbar shows={shows}/>
         </div>
-        <div className="pages">
-
-        </div>
         <h1>{this.headline}</h1>
         <div className="discoverFeed">
           {showsContent}
+        </div>
+        <div className="pages_btn">
+          {this.state.page > 1 ? <button className="btn btn-success" onClick={this.onPreviousButton} >previous</button> : null}
+          <button className="btn btn-success" onClick={this.onNextButton} >next</button>
         </div>
       </div>
     )
