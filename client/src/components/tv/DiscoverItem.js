@@ -7,7 +7,6 @@ import {connect} from 'react-redux';
 class DiscoverItem extends Component {
   render() {
     const { show } = this.props;
-    console.log(show.id)
     return (
       <div className="discoverItem">
         <a href={`../details/${show.id}`}>

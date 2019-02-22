@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { searchTitleTV } from "../../actions/tvActions"
 import TextFieldGroup from "../common/TextFieldGroup"
-// import { GET_ERRORS } from '../../actions/types';
+
 
 class Searchbar extends Component {
   constructor() {
@@ -21,6 +21,12 @@ class Searchbar extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.errors) {
+      this.setState({errors: nextProps.errors});
+    }
+  }
+
   onSubmit(e) {
     e.preventDefault();
 
@@ -33,6 +39,8 @@ class Searchbar extends Component {
   }
 
   render() {
+    const {errors} = this.state
+
     return (
       <div className="searchbar">
         <div className="container">
@@ -43,7 +51,7 @@ class Searchbar extends Component {
               type="search"
               value={this.state.search}
               onChange={this.onChange}
-              //errors to be added
+              error={errors.search}
               />
             <input type="submit" className="btn btn-info" />
           </form>
@@ -55,11 +63,13 @@ class Searchbar extends Component {
 Searchbar.propTypes = {
   searchTitleTV: PropTypes.func.isRequired,
   tvShow: PropTypes.object.isRequired,
-  shows: PropTypes.array.isRequired
+  shows: PropTypes.array.isRequired,
+  errors: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
-  tvShow: state.tvShows
+  tvShow: state.tvShows,
+  errors: state.errors
 })
 
 export default connect (mapStateToProps, { searchTitleTV })(Searchbar);

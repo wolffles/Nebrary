@@ -25,7 +25,8 @@
     "classname": "0.0.0",
     "classnames": "2.2.6",
     "concurrently": "4.1.0",
-    "express": "4.16.4"
+    "express": "4.16.4",
+    "validator": "10.11.0"
   },
   "devDependencies": {
     "nodemon": "1.18.10"
