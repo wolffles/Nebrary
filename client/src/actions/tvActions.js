@@ -3,7 +3,8 @@ import {
   // GET_ERRORS,
   GET_SHOWS,
   SHOW_LOADING,
-  SEARCH_TITLE
+  SEARCH_TITLE,
+  DETAILS_PAGE
 } from './types'
 
 //GET TV SHOWS
@@ -23,6 +24,24 @@ export const getShows = (queryObj) => dispatch => {
     .catch(err => 
       dispatch({ 
         type: GET_SHOWS,
+        payload: null
+      })
+    )
+}
+
+//GET Details for show
+export const getDetailsPage = (queryObj) => dispatch => {
+  // dispatch(setShowLoading());
+  axios
+    .get(`/api/tv/details/${queryObj}`)
+    .then(res =>
+      dispatch({
+        type: DETAILS_PAGE,
+        payload: res.data
+      }))
+    .catch(err =>
+      dispatch({
+        type: DETAILS_PAGE,
         payload: null
       })
     )

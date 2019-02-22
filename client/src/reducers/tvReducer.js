@@ -1,14 +1,17 @@
 import{
   GET_SHOWS, 
   SHOW_LOADING,
-  SEARCH_TITLE
+  SEARCH_TITLE,
+  DETAILS_PAGE
 } from '../actions/types'
+
 
 const initialState = {
   search_results: [],
   shows: [],
   loading: false,
-  searched: false
+  searched: false,
+  details:{}
 }
 
 export default function(state = initialState, action){
@@ -30,6 +33,12 @@ export default function(state = initialState, action){
         shows: action.payload,
         loading: false,
         searched: true
+      }
+    case DETAILS_PAGE:
+      return {
+        ...state,
+        details: action.payload,
+        loading: true
       }
     default:
       return state

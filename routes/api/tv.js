@@ -3,12 +3,9 @@ const router = express.Router();
 
 const https = require('https');
 const api_key = "fb6a1d3f38c3d97f67df6d141f936f29"
-// @route GET api/tv/test
-// @desc Tests tv route
-// @access Public
-router.get('/test', (req,res) => res.json({message: "tv works"}));
 
-// @route GET api/tv/:page
+// @route GET api/tv
+// @params: page
 // @desc shows tv collection by popularity in descending order
 // @access Public
 router.get('/', (req, res) => {
@@ -36,7 +33,38 @@ router.get('/', (req, res) => {
 })
 
 
-// @route GET api/tv/:search
+// @route GET api/tv/details
+// @params: 
+// @desc displays details about show
+// @access Public
+router.get('/details/:id', (req, res) => {
+  let id = req.params.id
+  var options = {
+    "method": "GET",
+    "hostname": "api.themoviedb.org",
+    "port": null,
+    "path": `/3/tv/${id}?language=en-US&api_key=${api_key}`,
+    "headers": {}
+  };
+
+  var request = https.request(options, function (resp) {
+    var body = '';
+    resp.on('data', function (chunk) {
+      body += chunk;
+    });
+    resp.on('end', function () {
+      let obj = JSON.parse(body);
+      obj.genres_string = obj.genres.map((ele) => ele.name).join(', ');
+      res.json(obj)
+    });
+  }).on('error', function (e) {
+    res.json({ message: "Got an error: " + e });
+  });
+  request.end()
+});
+
+// @route GET api/search
+// @params: search, page
 // @desc search for collection by title
 // @access Public
 router.get('/search', (req, res) => {

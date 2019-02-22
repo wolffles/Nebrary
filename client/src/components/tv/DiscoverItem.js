@@ -6,14 +6,17 @@ import {connect} from 'react-redux';
 
 class DiscoverItem extends Component {
   render() {
-    const {show} = this.props;
+    const { show } = this.props;
+    console.log(show.id)
     return (
       <div className="discoverItem">
-        <h3> {show.original_name} </h3>
-        <img
-          src={ "https://image.tmdb.org/t/p/w154/"+show.poster_path }
-          alt={show.original_name}
-        />
+        <a href={`../details/${show.id}`}>
+          <h3> {show.original_name} </h3>
+          <img
+            src={ "https://image.tmdb.org/t/p/w154/"+show.poster_path }
+            alt={show.original_name}
+          />
+        </a>
       </div>
     )
   }

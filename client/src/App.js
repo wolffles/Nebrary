@@ -10,6 +10,7 @@ import Discover from './components/tv/Discover'
 import Footer from './components/layout/Footer'
 import Landing from './components/layout/Landing'
 import Navbar from './components/layout/Navbar'
+import DetailsPage from './components/tv/DetailsPage'
 import './App.css';
 
 class App extends Component {
@@ -22,6 +23,7 @@ class App extends Component {
             <Route exact path="/" component={Landing} /> 
             <div className="container">
               <Route exact path="/tv" component={Discover} />
+              <Route exact path="/details/:id" component={DetailsPage} />
             </div>
             <Footer />  
           </div>
