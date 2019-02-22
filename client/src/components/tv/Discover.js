@@ -9,9 +9,19 @@ import Searchbar from './Searchbar'
 
 
 class Discover extends Component {
-  // add constructor
+  constructor(){
+    super();
+    this.state = {
+      headline: ''
+    }
+  }
   componentDidMount(){
-    this.props.getShows(1);
+    this.props.getShows();
+  }
+  onPreviousButton(){
+    if (this.headline === "Popular Shows") {
+
+    }
   }
   onNextButton(){
     // add a next button to update getShows()
@@ -20,8 +30,7 @@ class Discover extends Component {
   render() {
     const {shows,loading, searched } = this.props.tvShow
     let showsContent;
-    let headline;
-    searched ? headline="Found Shows" : headline="Popular Shows"
+    searched ? this.headline="Found Shows" : this.headline="Popular Shows"
 
     if (shows.results === null || loading) {
       showsContent = <Spinner />;
@@ -34,7 +43,10 @@ class Discover extends Component {
         <div>
           <Searchbar shows={shows}/>
         </div>
-        <h1>{headline}</h1>
+        <div className="pages">
+
+        </div>
+        <h1>{this.headline}</h1>
         <div className="discoverFeed">
           {showsContent}
         </div>

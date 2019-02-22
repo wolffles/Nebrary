@@ -14,13 +14,16 @@ class DetailsPage extends Component {
       <div className="details">
         <img src={"https://image.tmdb.org/t/p/original/" + details.poster_path} alt={details.name+" Poster"}/>
         <h1>{details.name}</h1>
-        <h4>{details.popularity}</h4>
         <p>{details.overview}</p>
-        <p>{"Number of Seasons: "+details.number_of_seasons}</p>
-        <p>{"number of Episodes: " + details.number_of_episodes}</p>
-        <p>{"Genres: "+ details.genres_string}</p>
-        <p>{"TV Series("+details.first_air_date+")"}</p>
-        {/* img name, created, dates, episodes */}
+        <span>{"Rating: " + details.popularity}</span>
+        <br></br>
+        <span>{"Number of Seasons: "+details.number_of_seasons}</span>
+        <br></br>
+        <span>{"number of Episodes: " + details.number_of_episodes}</span>
+        <br></br>
+        <span>{"Genres: "+ details.genres_string}</span>
+        <br></br>
+        <span>{"TV Series("+details.first_air_date+")"}</span>
       </div>
     )
   }
