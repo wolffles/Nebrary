@@ -53,10 +53,13 @@ class Discover extends Component {
         <div className="discoverFeed">
           {showsContent}
         </div>
-        <div className="pages_btn">
-          {this.state.page > 1 ? <button className="btn btn-success" onClick={this.onPreviousButton} >previous</button> : null}
-          <button className="btn btn-success" onClick={this.onNextButton} >next</button>
-        </div>
+        {this.headline === "Popular Shows" ?
+          <div className="pages_btn">
+            {this.state.page > 1 ? <button className="btn btn-success" onClick={this.onPreviousButton} >page {this.state.page -1 }</button> : null}
+            <button className="btn btn-success" onClick={this.onNextButton} >page {this.state.page + 1}</button>
+          </div> :
+          null
+        }
       </div>
     )
   }
