@@ -55,7 +55,7 @@ router.get('/details/:id', (req, res) => {
     });
     resp.on('end', function () {
       let obj = JSON.parse(body);
-      obj.genres_string = obj.genres.map((ele) => ele.name).join(', ');
+      obj.genres_string = obj.genres.map(async (ele) => ele.name).join(', ');
       res.json(obj)
     });
   }).on('error', function (e) {
@@ -73,7 +73,6 @@ router.get('/search', (req, res) => {
   if (!isValid) {
     return res.status(400).json(errors); //status code 400 is bad request.
   }
-  console.log(req.query)
   let search = req.query.search
   let page = req.query.page || 1
   var options = {

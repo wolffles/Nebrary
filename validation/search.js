@@ -1,5 +1,5 @@
 const Validator = require('validator');
-const isEmpty = require('./is-empty');
+const isEmpty = require('./is-Empty');
 
 module.exports = function validateSearchInput(data) {
   let errors = {};
