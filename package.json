@@ -11,7 +11,6 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "test": "export NODE_ENV=test && jasmine",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
-    
   },
   "repository": {
     "type": "git",
@@ -25,7 +24,6 @@
   "homepage": "https://github.com/wolffles/Netbrary#readme",
   "dependencies": {
     "axios": "0.18.0",
-    "classname": "0.0.0",
     "classnames": "2.2.6",
     "concurrently": "4.1.0",
     "express": "4.16.4",
