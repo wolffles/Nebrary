@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
     "path": `/3/tv/popular?page=${page}&language=en-US&api_key=${api_key}`,
     "headers": {}
   }
-  var request = https.request(options, function (resp) {
+  var request = https.request(options, async function (resp) {
     var body = '';
     resp.on('data', function (chunk) {
       body += chunk;
@@ -48,14 +48,14 @@ router.get('/details/:id', (req, res) => {
     "headers": {}
   };
 
-  var request = https.request(options, function (resp) {
+  var request = https.request(options, async function (resp) {
     var body = '';
     resp.on('data', function (chunk) {
       body += chunk;
     });
     resp.on('end', function () {
       let obj = JSON.parse(body);
-      obj.genres_string = obj.genres.map(async (ele) => ele.name).join(', ');
+      obj.genres_string = obj.genres.map( (ele) => ele.name).join(', ');
       res.json(obj)
     });
   }).on('error', function (e) {
@@ -68,7 +68,7 @@ router.get('/details/:id', (req, res) => {
 // @params: search, page
 // @desc search for collection by title
 // @access Public
-router.get('/search', (req, res) => {
+router.get('/search', async (req, res) => {
   const {errors, isValid} = validateSearchInput(req.query);
   if (!isValid) {
     return res.status(400).json(errors); //status code 400 is bad request.

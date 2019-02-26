@@ -5,7 +5,7 @@ import rootReducer from './reducers'
 const initialState = {}
 const middleware = [thunk];
 
-//use this in development in production safari doesnt work.
+// use this in development in production safari doesnt work.
 // const store = createStore(
 //     rootReducer,
 //     initialState,
