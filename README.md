@@ -2,7 +2,7 @@
 TV show Library on the Net
 
 ## description
-TV show discovery web app using the [open-source Movie Database] API(https://www.themoviedb.org/documentation/api). built using Express, React, and Node. 
+TV show discovery web app using the [open-source Movie Database] API(https://www.themoviedb.org/documentation/api). Built using Express, React, and Node. 
 
 ### Practical take home assignment 
 * A Potential employer has given me a assignment to create an application using their movies/Tv shows API to create a browsable tv show database, similar to a Netflix or Hulu minus the streaming. The api doesn't provide actual videos. I just needed a popular show page, and the ability to navigate through the selections, search, or select a show to see more information. 
