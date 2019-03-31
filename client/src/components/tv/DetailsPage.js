@@ -9,10 +9,16 @@ class DetailsPage extends Component {
   }
   render() {
     const {details, } = this.props.tvShow
-    
+    let path;
+    if(details.poster_path == null){
+      path = require("../../assets/img/film-poster-placeholder.png");
+    }else{
+      path =
+        "https://image.tmdb.org/t/p/original/"+details.poster_path;
+    }
     return (
       <div className="details">
-        <img src={"https://image.tmdb.org/t/p/original/" + details.poster_path} alt={details.name+" Poster"}/>
+        <img src={path} alt={details.name+" Poster"}/>
         <h1>{details.name}</h1>
         <p>{details.overview}</p>
         <span>{"Rating: " + details.popularity}</span>
