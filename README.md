@@ -3,3 +3,5 @@ TV show Library on the Net
 
 ## Description
 TV show discovery web app using the [open-source Movie Database] API(https://www.themoviedb.org/documentation/api). Built using Express, React, and Node. 
+
+Technically it is a IMDB but displays TV shows only. 
