@@ -3,7 +3,7 @@ const router = express.Router();
 const https = require('https');
 
 const validateSearchInput = require("../../validation/search");
-const api_key = "fb6a1d3f38c3d97f67df6d141f936f29"
+const api_key = "3e47f8d847ce657ef40adc484c49bcd0"
 
 // @route GET api/tv
 // @params: page
@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
     "hostname": "api.themoviedb.org",
     "port": null,
     "path": `/3/tv/popular?page=${page}&language=en-US&api_key=${api_key}`,
-    "headers": {}
+    "headers":  { }
   }
   var request = https.request(options, async function (resp) {
     var body = '';

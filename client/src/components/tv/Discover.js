@@ -43,7 +43,7 @@ class Discover extends Component {
     }else {
       showsContent = <DiscoverFeed shows={shows} />
     }
-    
+
     return (
       <div className="container">
         <div>
