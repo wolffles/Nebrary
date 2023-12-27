@@ -1,7 +1,7 @@
 const encodeSearch = (data) => {
     data.trim()
     if(data.includes(" ")) {
-      data =  data.replace(" ", "%20")
+      data =  data.replaceAll(" ", "%20")
     }
     return data
 }
