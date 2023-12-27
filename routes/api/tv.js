@@ -3,6 +3,7 @@ const router = express.Router();
 const https = require('https');
 
 const validateSearchInput = require("../../validation/search");
+const encodeSearch = require("../../validation/encodeSearch")
 const api_key = "3e47f8d847ce657ef40adc484c49bcd0"
 
 // @route GET api/tv
@@ -73,7 +74,7 @@ router.get('/search', async (req, res) => {
   if (!isValid) {
     return res.status(400).json(errors); //status code 400 is bad request.
   }
-  let search = req.query.search
+  let search = encodeSearch(req.query.search)
   let page = req.query.page || 1
   var options = {
     "method": "GET",
